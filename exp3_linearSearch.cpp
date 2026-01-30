@@ -1,26 +1,25 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+using namespace std;
 
-// Function to perform linear search
-int linearSearch(const std::vector<int>& arr, int target) {
-    for (int i = 0; i < arr.size(); ++i) {
-        if (arr[i] == target) {
-            return i; // Return the index if found
+int linearSearch(int arr[], int n, int key) {
+    for (int i = 0; i < n; i++) { 
+        if (arr[i] == key) {    
+            return i;            
         }
     }
-    return -1; // Return -1 if not found
+    return -1;
 }
 
 int main() {
-    std::vector<int> numbers = {2, 45, 67, 12, 9, 34};
-    int target = 12;
-    int result = linearSearch(numbers, target);
+    int arr[] = {2, 4, 0, 1, 9};
+    int key = 1;
+    int n = sizeof(arr) / sizeof(arr[0]); 
+    int result = linearSearch(arr, n, key);
 
-    if (result != -1) {
-        std::cout << "Element " << target << " found at index " << result << std::endl;
+    if (result == -1) {
+        cout << "Element not found" << endl;
     } else {
-        std::cout << "Element " << target << " not found" << std::endl;
+        cout << "Element found at index: " << result << endl;
     }
 
     return 0;
